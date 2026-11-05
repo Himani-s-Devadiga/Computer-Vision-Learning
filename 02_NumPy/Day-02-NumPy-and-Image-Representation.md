@@ -66,11 +66,6 @@ print(image.dtype)
 - Understanding NumPy is important for image processing.
 - Image dimensions and pixel values are fundamental concepts in Computer Vision.
 
-## Next Learning Goal
-
-- Learn OpenCV practically.
-- Read and display images.
-- Resize, crop and manipulate images.
 - Practise image processing using Python.
 
-**Status:** Theory completed; practical exercises in progress.
+**Status:** Theory and practical exercises completed; 
