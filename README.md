@@ -69,7 +69,6 @@ Practical projects and experiments will be added as I progress.
 - YOLO
 
 ## Progress
-
-This repository is a work in progress. I will regularly update it with my notes, code, experiments and projects.
+Completed Open CV Fundamentals (Day-3)
 
 **Learning by building, experimenting and improving!**
