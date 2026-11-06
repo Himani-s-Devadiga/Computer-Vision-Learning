@@ -1,10 +1,14 @@
 # Day 3 — OpenCV Fundamentals
 
+**Date:** November 6, 2026  
+**Learning Track:** Computer Vision  
+**Status:** Completed
+
 ## Learning Objectives
 
 Today's goal was to understand the fundamentals of OpenCV and learn how to perform basic image operations using Python.
 
-Topics covered:
+### Topics Covered
 
 1. Introduction to OpenCV
 2. Reading and displaying images
@@ -17,11 +21,25 @@ Topics covered:
 
 OpenCV stands for **Open Source Computer Vision Library**.
 
-It is a popular Python library used for image processing, video analysis, object detection and other computer vision applications.
+It is a popular computer vision library used for image processing, video analysis, object detection and other computer vision applications.
 
-### Importing libraries
+### Libraries Used
 
-### Key concepts
+- **OpenCV (`cv2`):** Image processing and computer vision operations.
+- **NumPy:** Working with images as multidimensional arrays.
+- **Matplotlib:** Displaying and visualising images.
+
+### Checking Library Versions
+
+```python
+import cv2
+import numpy as np
+
+print("OpenCV Version:", cv2.__version__)
+print("NumPy Version:", np.__version__)
+```
+
+### Key Concepts
 
 - OpenCV provides tools for image processing and computer vision.
 - NumPy represents images as multidimensional arrays.
@@ -31,13 +49,11 @@ It is a popular Python library used for image processing, video analysis, object
 
 ## 2. Reading and Displaying Images
 
-### Reading an image
+### Reading an Image
 
 The `cv2.imread()` function loads an image into Python.
 
 ```python
-import cv2
-
 image = cv2.imread("image.jpg")
 
 if image is not None:
@@ -47,21 +63,21 @@ else:
     print("Unable to load image.")
 ```
 
-### Image reading modes
+### Image Reading Modes
 
 | Mode | Description |
 |---|---|
 | `cv2.IMREAD_COLOR` | Loads a colour image |
 | `cv2.IMREAD_GRAYSCALE` | Loads an image in grayscale |
-| `cv2.IMREAD_UNCHANGED` | Loads an image with its original channels, including alpha when present |
+| `cv2.IMREAD_UNCHANGED` | Loads the image with its original channels, including alpha when present |
 
-### Displaying images in Google Colab
+### Displaying Images in Google Colab
 
-OpenCV reads images in BGR format, whereas Matplotlib expects RGB.
+OpenCV reads colour images in BGR format, whereas Matplotlib expects RGB.
+
+Therefore, colour conversion is required before displaying an OpenCV image using Matplotlib.
 
 ```python
-import matplotlib.pyplot as plt
-
 image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
 plt.imshow(image_rgb)
@@ -69,7 +85,9 @@ plt.axis("off")
 plt.show()
 ```
 
-### Saving an image
+### Saving an Image
+
+The `cv2.imwrite()` function saves an image to the specified path.
 
 ```python
 success = cv2.imwrite("output.jpg", image)
@@ -77,7 +95,9 @@ success = cv2.imwrite("output.jpg", image)
 print("Image saved:", success)
 ```
 
-The function returns `True` if the image is saved successfully and `False` otherwise.
+It returns:
+- `True` if the image is saved successfully.
+- `False` if the image could not be saved.
 
 ---
 
@@ -85,16 +105,15 @@ The function returns `True` if the image is saved successfully and `False` other
 
 Image manipulation involves modifying an image's dimensions, orientation or selected region.
 
-### A. Resizing an image
+### A. Resizing an Image
+
+The `cv2.resize()` function changes the dimensions of an image.
 
 ```python
 resized = cv2.resize(image, (300, 300))
-
-print("Original shape:", image.shape)
-print("Resized shape:", resized.shape)
 ```
 
-The resize function accepts dimensions in `(width, height)` order.
+**Important:** The function accepts dimensions in `(width, height)` order.
 
 Common interpolation methods:
 
@@ -104,16 +123,12 @@ Common interpolation methods:
 
 `INTER_AREA` is generally useful when shrinking images.
 
-### B. Cropping an image
+### B. Cropping an Image
 
-Cropping selects a specific region of an image.
+Cropping selects a specific region of an image using NumPy slicing.
 
 ```python
 cropped = image[50:250, 100:300]
-
-plt.imshow(cv2.cvtColor(cropped, cv2.COLOR_BGR2RGB))
-plt.axis("off")
-plt.show()
 ```
 
 **Important:** NumPy slicing follows this order:
@@ -122,22 +137,23 @@ plt.show()
 
 Rows come first, followed by columns.
 
-### C. Rotating an image
+### C. Rotating an Image
+
+The `cv2.rotate()` function rotates an image.
 
 ```python
-rotated = cv2.rotate(
-    image,
-    cv2.ROTATE_90_CLOCKWISE
-)
+rotated = cv2.rotate(image, cv2.ROTATE_90_CLOCKWISE)
 ```
 
-Other rotation options:
+Available rotation options:
 
 - `cv2.ROTATE_90_CLOCKWISE`
 - `cv2.ROTATE_90_COUNTERCLOCKWISE`
 - `cv2.ROTATE_180`
 
-### D. Flipping an image
+### D. Flipping an Image
+
+The `cv2.flip()` function flips an image in different directions.
 
 ```python
 horizontal_flip = cv2.flip(image, 1)
@@ -145,7 +161,7 @@ vertical_flip = cv2.flip(image, 0)
 both_flip = cv2.flip(image, -1)
 ```
 
-| Flip value | Operation |
+| Flip Value | Operation |
 |---|---|
 | `1` | Horizontal flip |
 | `0` | Vertical flip |
@@ -168,13 +184,10 @@ OpenCV uses **BGR** channel order by default, while Matplotlib uses **RGB**.
 Conversion:
 
 ```python
-rgb_image = cv2.cvtColor(
-    image,
-    cv2.COLOR_BGR2RGB
-)
+rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 ```
 
-### B. Grayscale conversion
+### B. Grayscale Conversion
 
 A grayscale image represents pixels using intensity values rather than three separate colour channels.
 
@@ -182,22 +195,23 @@ For an 8-bit grayscale image:
 
 - `0` represents black.
 - `255` represents white.
-- Values between 0 and 255 represent shades of gray.
+- Values between 0 and 255 represent different shades of grey.
 
 Conversion:
 
 ```python
-gray_image = cv2.cvtColor(
-    image,
-    cv2.COLOR_BGR2GRAY
-)
+gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+```
 
+Displaying a grayscale image:
+
+```python
 plt.imshow(gray_image, cmap="gray")
 plt.axis("off")
 plt.show()
 ```
 
-Checking image dimensions:
+### Understanding Image Dimensions
 
 ```python
 print("Original image:", image.shape)
@@ -212,9 +226,9 @@ A grayscale image has two dimensions:
 
 `(height, width)`
 
-**Application:** Grayscale conversion is useful in handwritten text recognition because it simplifies the image representation while preserving important handwriting patterns.
+**Application:** Grayscale conversion is useful in handwritten text recognition because it simplifies image representation while preserving important handwriting patterns.
 
-### C. HSV colour space
+### C. HSV Colour Space
 
 HSV stands for:
 
@@ -225,83 +239,16 @@ HSV stands for:
 Conversion:
 
 ```python
-hsv_image = cv2.cvtColor(
-    image,
-    cv2.COLOR_BGR2HSV
-)
+hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
 print("HSV image shape:", hsv_image.shape)
 ```
 
-HSV is useful in colour-based object detection and segmentation.
+HSV is useful in colour-based object detection and segmentation because it separates colour information from brightness.
 
 ---
 
-## 5. Practical Implementation
-
-The following program combines the concepts learned today.
-
-```python
-import cv2
-import numpy as np
-import matplotlib.pyplot as plt
-
-# Read image
-image = cv2.imread("image.jpg")
-
-if image is None:
-    raise ValueError("Image could not be loaded.")
-
-# Colour space conversions
-rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-
-# Image manipulation
-resized = cv2.resize(image, (300, 300))
-rotated = cv2.rotate(image, cv2.ROTATE_90_CLOCKWISE)
-flipped = cv2.flip(image, 1)
-
-# Display results
-plt.figure(figsize=(15, 10))
-
-plt.subplot(2, 3, 1)
-plt.imshow(rgb)
-plt.title("Original RGB")
-plt.axis("off")
-
-plt.subplot(2, 3, 2)
-plt.imshow(gray, cmap="gray")
-plt.title("Grayscale")
-plt.axis("off")
-
-plt.subplot(2, 3, 3)
-plt.imshow(cv2.cvtColor(hsv, cv2.COLOR_HSV2RGB))
-plt.title("HSV")
-plt.axis("off")
-
-plt.subplot(2, 3, 4)
-plt.imshow(cv2.cvtColor(resized, cv2.COLOR_BGR2RGB))
-plt.title("Resized")
-plt.axis("off")
-
-plt.subplot(2, 3, 5)
-plt.imshow(cv2.cvtColor(rotated, cv2.COLOR_BGR2RGB))
-plt.title("Rotated")
-plt.axis("off")
-
-plt.subplot(2, 3, 6)
-plt.imshow(cv2.cvtColor(flipped, cv2.COLOR_BGR2RGB))
-plt.title("Flipped")
-plt.axis("off")
-
-plt.tight_layout()
-plt.show()
-```
-
----
-
-## 6. Key Learnings
+## 5. Key Learnings
 
 By completing today's lessons, I learned:
 
@@ -311,8 +258,11 @@ By completing today's lessons, I learned:
 - How to resize, crop, rotate and flip images.
 - How to convert images into RGB, grayscale and HSV colour spaces.
 - How image dimensions change during different operations.
+- How to perform basic image operations using Google Colab.
 
-## 7. Knowledge Assessment
+---
+
+## 6. Knowledge Assessment
 
 | Lesson | Score |
 |---|---:|
@@ -322,8 +272,23 @@ By completing today's lessons, I learned:
 | Colour Spaces and Grayscale | 4/4 |
 | **Total** | **18/18 (100%)** |
 
-**Practical Status:** Completed.
+**Practical Coding:** Completed  
+**Code Notebook:** Uploaded separately in this repository  
+**Overall Status:** Day 3 successfully completed.
 
 ---
+
+## 7. Next Learning Goal
+
+### Day 4 — Image Preprocessing
+
+Planned topics:
+
+- Image thresholding
+- Noise removal
+- Gaussian blur
+- Image sharpening
+- Edge detection
+- Contour detection
 
 These techniques will help build the foundation for handwritten prescription recognition and other computer vision applications.
