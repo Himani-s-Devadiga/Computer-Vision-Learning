@@ -69,6 +69,6 @@ Practical projects and experiments will be added as I progress.
 - YOLO
 
 ## Progress
-Completed Open CV Fundamentals (Day-3)
+Completed Image preporocessing concepts (Day-4)
 
 **Learning by building, experimenting and improving!**
