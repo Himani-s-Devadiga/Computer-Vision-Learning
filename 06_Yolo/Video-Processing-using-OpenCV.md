@@ -1,4 +1,4 @@
-# Day 7 – Video Processing using OpenCV
+# Video Processing using OpenCV
 
 **Date:** 14 November 2026  
 **Topic:** Video Processing and Frame Extraction using OpenCV
