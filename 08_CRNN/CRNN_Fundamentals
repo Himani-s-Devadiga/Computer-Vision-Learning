@@ -1,5 +1,6 @@
-
+-----
 # CRNN – Convolutional Recurrent Neural Network
+------
 
 CRNN stands for **Convolutional Recurrent Neural Network**. It is a deep learning architecture that combines Convolutional Neural Networks (CNNs) and Recurrent Neural Networks (RNNs) to recognise text sequences from images.
 
