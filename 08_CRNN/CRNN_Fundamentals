@@ -1,6 +1,5 @@
----
 
-## 6. CRNN Architecture
+##  CRNN Architecture
 
 CRNN stands for Convolutional Recurrent Neural Network.
 
@@ -27,7 +26,7 @@ It combines CNN and RNN components to recognise text sequences.
 **3. BiLSTM – Bidirectional Long Short-Term Memory**
 
 - Processes sequences in both forward and backward directions.
-- Uses context from both sides to improve recognition.
+- Uses context from both directions to improve recognition.
 
 **4. CTC – Connectionist Temporal Classification**
 
@@ -44,11 +43,12 @@ It combines CNN and RNN components to recognise text sequences.
 
 ---
 
-## 7. CNN Feature Extraction for Text Recognition
+##  CNN Feature Extraction for Text Recognition
 
 Feature extraction means identifying useful patterns from an image.
 
 CNNs learn visual patterns such as:
+
 - Edges
 - Lines
 - Curves
@@ -58,11 +58,28 @@ CNNs learn visual patterns such as:
 
 ### Important CNN Operations
 
-**Convolution**
+**1. Convolution**
 
-**ReLU Activation**
+- Uses filters or kernels to extract visual features from an image.
+- Detects patterns such as edges, curves and lines.
+- Produces feature maps.
 
-**Pooling**
+**2. ReLU Activation**
+
+- Introduces non-linearity into the network.
+- Converts negative values into zero while keeping positive values unchanged.
+
+Formula:
+
+`ReLU(x) = max(0, x)`
+
+**3. Pooling**
+
+- Reduces the spatial dimensions of feature maps.
+- Helps reduce computational complexity.
+- Max pooling selects the maximum value from a region.
+
+In text recognition, horizontal resolution should be preserved carefully because it carries character sequence information.
 
 ### Feature Maps
 
@@ -91,14 +108,14 @@ Example: Recognising the sequence of letters in the word COMPUTER.
 
 ---
 
-## 8. Python Practical – CNN Input Preparation
+##  Python Practical – CNN Input Preparation
 
 Created `cnn_text_features.py` using OpenCV and NumPy.
 
 ### Operations Performed
 
 1. Read an image using OpenCV.
-2. Convert BGR image into grayscale.
+2. Convert the BGR image into grayscale.
 3. Resize the image to 128 × 32.
 4. Normalize pixel values.
 5. Convert the image into a NumPy array.
@@ -125,7 +142,7 @@ This helps maintain a consistent input scale for neural network training.
 
 ---
 
-## 9. Key Learnings
+##  Key Learnings
 
 - Understood the OCR pipeline and its stages.
 - Learned the difference between text detection and text recognition.
@@ -135,19 +152,23 @@ This helps maintain a consistent input scale for neural network training.
 - Practised OCR evaluation using CER and WER.
 - Understood CRNN architecture.
 - Learned the role of CNN, RNN, BiLSTM and CTC.
+- Studied convolution, ReLU activation and pooling.
 - Understood spatial and sequential patterns.
 - Prepared an image for CNN input using OpenCV and NumPy.
+
+---
 
 ## 10. Next Topics
 
 - RNN Fundamentals
 - Feedforward Neural Networks vs RNN
-- Sequential data and time steps
-- Hidden states and memory
+- Sequential Data and Time Steps
+- Hidden States and Memory
 - LSTM Architecture
 - CTC Loss and Decoding
 
 ---
 
 **Learning Date:** 17 November 2026  
-**Domain:** Computer Visio
+**Domain:** Computer Vision, OCR and Deep Learning  
+**Tools:** Python, OpenCV, NumPy, Pillow, Tesseract OCR, pytesseract, jiwer
