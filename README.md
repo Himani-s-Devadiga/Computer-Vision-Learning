@@ -4,6 +4,10 @@ Welcome to my Computer Vision learning repository!
 
 This repository documents my journey of learning Computer Vision through theoretical concepts, Python implementations, practical experiments, and mini-projects.
 
+## Status:
+  Completed OCR and CRNN
+  Next Target:RNN
+  
 ## Learning Roadmap
 
 ### 1. Python Fundamentals
@@ -67,8 +71,5 @@ Practical projects and experiments will be added as I progress.
 - Matplotlib
 - PyTorch
 - YOLO
-
-## Progress
-Completed Image preporocessing concepts (Day-4)
 
 **Learning by building, experimenting and improving!**
