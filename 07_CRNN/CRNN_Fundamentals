@@ -1,0 +1,153 @@
+---
+
+## 6. CRNN Architecture
+
+CRNN stands for Convolutional Recurrent Neural Network.
+
+It combines CNN and RNN components to recognise text sequences.
+
+### CRNN Architecture
+
+`Input Image → CNN → BiLSTM → CTC → Recognised Text`
+
+### Components
+
+**1. CNN – Convolutional Neural Network**
+
+- Extracts visual features from text images.
+- Identifies edges, curves, strokes and character shapes.
+- Produces feature maps.
+
+**2. RNN – Recurrent Neural Network**
+
+- Processes sequential information.
+- Understands the order of features.
+- Maintains information from previous time steps.
+
+**3. BiLSTM – Bidirectional Long Short-Term Memory**
+
+- Processes sequences in both forward and backward directions.
+- Uses context from both sides to improve recognition.
+
+**4. CTC – Connectionist Temporal Classification**
+
+- Helps align image features with text sequences.
+- Handles cases where input and output sequence lengths differ.
+- Uses blank tokens and repeated-character collapsing during decoding.
+
+### Applications
+
+- Handwritten text recognition
+- Printed text recognition
+- Document digitisation
+- Prescription recognition
+
+---
+
+## 7. CNN Feature Extraction for Text Recognition
+
+Feature extraction means identifying useful patterns from an image.
+
+CNNs learn visual patterns such as:
+- Edges
+- Lines
+- Curves
+- Corners
+- Character strokes
+- Character shapes
+
+### Important CNN Operations
+
+**Convolution**
+
+**ReLU Activation**
+
+**Pooling**
+
+### Feature Maps
+
+Feature maps are outputs produced by convolution operations.
+
+They represent visual patterns learned by the CNN and are passed to the recurrent layers in a CRNN.
+
+### CNN vs CRNN
+
+| CNN | CRNN |
+|---|---|
+| Extracts spatial features | Extracts features and models sequences |
+| Learns visual patterns | Learns visual patterns and character order |
+| Does not inherently model sequence dependencies | Uses recurrent layers for sequence dependencies |
+| Useful for image classification | Useful for text recognition |
+
+### Spatial vs Sequential Patterns
+
+**Spatial patterns:** How visual features are arranged in an image.
+
+Example: The two diagonal strokes and horizontal bar of the letter A.
+
+**Sequential patterns:** The order in which features or characters appear.
+
+Example: Recognising the sequence of letters in the word COMPUTER.
+
+---
+
+## 8. Python Practical – CNN Input Preparation
+
+Created `cnn_text_features.py` using OpenCV and NumPy.
+
+### Operations Performed
+
+1. Read an image using OpenCV.
+2. Convert BGR image into grayscale.
+3. Resize the image to 128 × 32.
+4. Normalize pixel values.
+5. Convert the image into a NumPy array.
+6. Display the processed image and inspect its shape.
+
+### Normalization
+
+Pixel values are generally represented between 0 and 255.
+
+Normalization converts them into a range between 0 and 1.
+
+`Normalized Pixel = Pixel Value / 255.0`
+
+This helps maintain a consistent input scale for neural network training.
+
+### Practical Output
+
+- Original image shape: `(300, 900)`
+- Resized image shape: `(32, 128)`
+- Feature input shape: `(32, 128)`
+- Data type: `float32`
+
+**Note:** This practical prepares an image for CNN input. It does not yet generate learned CNN feature maps. Actual CNN feature extraction will be implemented using a deep learning framework.
+
+---
+
+## 9. Key Learnings
+
+- Understood the OCR pipeline and its stages.
+- Learned the difference between text detection and text recognition.
+- Studied EAST and CRAFT text detection algorithms.
+- Understood bounding boxes and coordinate systems.
+- Learned Tesseract OCR configuration and extraction methods.
+- Practised OCR evaluation using CER and WER.
+- Understood CRNN architecture.
+- Learned the role of CNN, RNN, BiLSTM and CTC.
+- Understood spatial and sequential patterns.
+- Prepared an image for CNN input using OpenCV and NumPy.
+
+## 10. Next Topics
+
+- RNN Fundamentals
+- Feedforward Neural Networks vs RNN
+- Sequential data and time steps
+- Hidden states and memory
+- LSTM Architecture
+- CTC Loss and Decoding
+
+---
+
+**Learning Date:** 17 November 2026  
+**Domain:** Computer Visio
