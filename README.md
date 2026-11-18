@@ -5,8 +5,8 @@ Welcome to my Computer Vision learning repository!
 This repository documents my journey of learning Computer Vision through theoretical concepts, Python implementations, practical experiments, and mini-projects.
 
 ## Status:
-  - Completed OCR and CRNN
-  - Next Target:RNN
+  - Completed RNN,LSTM,CTC
+  - Next Target: Attention Mechanisms and other practicals
   
 ## Learning Roadmap
 
