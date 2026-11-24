@@ -6,16 +6,8 @@ This repository documents my journey of learning Computer Vision through theoret
 
 ## Current Status
 
-**Phase 1 – OCR and Handwriting Recognition**
-- Completed: RNN, LSTM and CTC
-- Completed: Attention Mechanisms
-- Completed: Transformer Fundamentals
-- Completed: TrOCR Architecture
-- Completed: Handwriting Recognition Practical
-
-**Phase 2 – Image Processing Libraries**
-- Pillow (PIL) Fundamentals: Theory covered
-- Next: Important Pillow concepts and practical implementation
+** Phase 2 - Image Processing Libraries
+- Completed till types of edge detection
 
 ## Learning Roadmap
 
@@ -75,7 +67,7 @@ This repository documents my journey of learning Computer Vision through theoret
 
 ### Phase 2 – Image Processing Libraries
 
-**1. Pillow (PIL) Fundamentals**
+**9. Pillow (PIL) Fundamentals**
 - Introduction to Pillow
 - Opening and displaying images
 - Image properties: size, format and mode
