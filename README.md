@@ -7,7 +7,7 @@ This repository documents my journey of learning Computer Vision through theoret
 ## Current Status
 
 ** Phase 2 - Image Processing Libraries
-- Completed till types of edge detection
+- Completed till 60% Image segmentation
 
 ## Learning Roadmap
 
