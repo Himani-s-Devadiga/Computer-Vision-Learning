@@ -1,0 +1,25 @@
+# Adaptive Thresholding – Practical Implementation
+
+## 1. Input Image
+
+The input is a handwritten image with uneven illumination, loaded in grayscale.
+
+## 2. Adaptive Mean Thresholding
+
+![Adaptive Mean Thresholding](adaptive_mean_output.png)
+
+**Observation:** The local mean intensity is used to calculate the threshold for each pixel.
+
+## 3. Adaptive Gaussian Thresholding
+
+![Adaptive Gaussian Thresholding](adaptive_gaussian_output.png)
+
+**Observation:** A weighted average of neighbouring pixels is used to calculate the local threshold.
+
+## 4. Comparison
+
+Both methods adapt to local lighting conditions. Adaptive Mean uses an ordinary local average, whereas Adaptive Gaussian gives more weight to nearby pixels.
+
+## 5. Result
+
+Both adaptive thresholding techniques were successfully applied to the handwritten image to improve foreground and background separation.
