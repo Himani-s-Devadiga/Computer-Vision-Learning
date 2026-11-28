@@ -6,7 +6,7 @@ This repository documents my journey of learning Computer Vision through theoret
 
 ## Current Status
 
-** Phase 2 - Deep Learning Architectures
+** Phase 3 - Deep Learning Architectures
 - Started Phase 3 
 ## Learning Roadmap
 
