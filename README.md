@@ -6,9 +6,8 @@ This repository documents my journey of learning Computer Vision through theoret
 
 ## Current Status
 
-** Phase 2 - Image Processing Libraries
-- Completed till 60% Image segmentation
-
+** Phase 2 - Deep Learning Architectures
+- Started Phase 3 
 ## Learning Roadmap
 
 ### Phase 1 – Computer Vision Fundamentals
