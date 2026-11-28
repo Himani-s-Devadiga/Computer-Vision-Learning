@@ -1,1 +1,60 @@
 
+import cv2
+import os
+
+# Load handwritten image in grayscale
+image = cv2.imread(
+    r"C:\Users\HIMANI\Intelligent-OCR-Text-Extraction\images\real_uneven_lighting_handwriting.png",
+    cv2.IMREAD_GRAYSCALE
+)
+
+if image is None:
+    raise FileNotFoundError("Handwritten image not found!")
+
+# Adaptive Mean Thresholding
+adaptive_mean = cv2.adaptiveThreshold(
+    image,
+    255,
+    cv2.ADAPTIVE_THRESH_MEAN_C,
+    cv2.THRESH_BINARY,
+    21,
+    10
+)
+
+# Adaptive Gaussian Thresholding
+adaptive_gaussian = cv2.adaptiveThreshold(
+    image,
+    255,
+    cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+    cv2.THRESH_BINARY,
+    21,
+    10
+)
+
+# Save outputs in the practicals folder
+output_dir = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "practicals")
+)
+os.makedirs(output_dir, exist_ok=True)
+
+cv2.imwrite(
+    os.path.join(output_dir, "adaptive_mean_output.png"),
+    adaptive_mean
+)
+
+cv2.imwrite(
+    os.path.join(output_dir, "adaptive_gaussian_output.png"),
+    adaptive_gaussian
+)
+
+# Display results
+cv2.imshow("Original Image", image)
+cv2.imshow("Adaptive Mean Thresholding", adaptive_mean)
+cv2.imshow("Adaptive Gaussian Thresholding", adaptive_gaussian)
+
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+print("Adaptive thresholding completed successfully!")
+print("Output images saved in the practicals folder.")
+
